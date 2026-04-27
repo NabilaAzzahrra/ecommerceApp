@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Products;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
@@ -11,7 +12,10 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        return view('page.product.index');
+        $data = Products::all();
+        return view('page.product.index')->with([
+            'data' => $data
+        ]);
     }
 
     /**
@@ -27,7 +31,19 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $data = [
+            'brand_id' => $request->input('brand_id'),
+            'category_id' => $request->input('category_id'),
+            'name' => $request->input('name'),
+            'description' => $request->input('description'),
+            'best_price' => $request->input('best_price'),
+            'is_active' => 1,
+        ];
+
+        Products::create($data);
+
+        return redirect()
+            ->route('product.index');
     }
 
     /**
