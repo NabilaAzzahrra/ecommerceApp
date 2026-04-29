@@ -31,11 +31,11 @@
                             @forelse($data as $i)
                             <tr>
                                 <td class="text-center">{{$no++}}</td>
-                                <td class="text-wrap">{{$i->brand_id}}</td>
-                                <td class="text-wrap">{{$i->category_id}}</td>
-                                <td class="text-wrap">{{$i->name}}</td>
-                                <td class="text-wrap">{{$i->description}}</td>
-                                <td class="text-wrap">{{$i->best_price}}</td>
+                                <td class="text-wrap">{{$i->brand->name}}</td>
+                                <td class="text-wrap">{{$i->category->name}}</td>
+                                <td class="text-wrap w-1/2">{{$i->name}}</td>
+                                <td class="text-wrap w-1/2">{{$i->description}}</td>
+                                <td class="text-wrap w-1/4">{{$i->best_price}}</td>
                                 <td class="text-center">
                                     <button type="button" class="flex bg-amber-200 hover:bg-amber-700 hover:bg-amber-500 text-amber-600 hover:text-white inline-flex rounded-full" data-id="{{$i->id}}"
                                         data-modal-target="sourceModal" data-name="{{ $i->name }}"
