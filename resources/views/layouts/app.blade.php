@@ -23,7 +23,43 @@
             position: relative;
             z-index: 10;
         }
+
+        .select2-container .select2-selection--single {
+            width: 100% !important;
+            background-color: #f9fafb;
+            border: 1px solid #d1d5db !important;
+            padding: 0.5rem 0.75rem;
+            height: 40px;
+            border-radius: 0.4rem;
+            color: #1f2937;
+        }
+
+        .select2-container .select2-selection--single .select2-selection__arrow {
+            top: 20% !important;
+            right: 8px;
+        }
+
+        .select2-container .select2-selection--single .select2-selection__rendered {
+            top: -2px;
+            left: -6px;
+            position: relative;
+            color: #1f2937;
+        }
+
+        .select2-search__field {
+
+            border-radius: 0.5rem;
+        }
+
+        .select2-results {
+            font-size: 12px !important;
+            border-radius: 0px 10px 0px 10px;
+        }
     </style>
+
+    <!-- select2 -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
 </head>
 
 <body class="font-sans antialiased">
@@ -50,6 +86,10 @@
     <!-- DataTables JS -->
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+
+    <!-- Select2 -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
     <script>
         $(document).ready(function() {
             $('.datatable').DataTable();
@@ -67,6 +107,13 @@
                     previous: "Prev"
                 }
             }
+        });
+
+        // Select2
+        $('.select2').select2({
+            tags: true,
+            placeholder: "Masukan Nama disini ...",
+            width: '100%'
         });
     </script>
 </body>
